@@ -1,4 +1,7 @@
-FROM haskell:8
+FROM haskell:8.6.5
 
-RUN stack upgrade
-
+COPY . .
+RUN stack upgrade && stack --version
+RUN stack update
+# RUN stack build
+RUN stack ghci
